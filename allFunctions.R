@@ -15,13 +15,14 @@
 #' @return A ggplot object.
 #' @export
 
+
 # Load necessary libraries
 library(ggplot2)
 library(ggmosaic)
 library(scales)
 
 # create mosplot graph function
-mymosplot <- function(df, stat = NULL, gap_size = 0.02, spacing = 200, xlab = "Population", 
+mymosplot <- function(df, stat = NULL, gap_size = 0.02, pval_threshold = 0.05, spacing = 200, xlab = "Population", 
                       fill_lab = "Condition", title = NULL, alpha_range = c(0.3, 1), cols = NULL) {
   if (is.null(cols)) {
     cols <- rainbow(length(levels(df$condition)), s = 0.8, v = 0.8)
@@ -32,7 +33,7 @@ mymosplot <- function(df, stat = NULL, gap_size = 0.02, spacing = 200, xlab = "P
     group_by(cluster_id) %>%
     summarise(total_count = n())
   if (!is.null(stat)) {
-    alpha_levels <- ifelse(stat > 0.05, 0.4, 1)
+    alpha_levels <- ifelse(stat > pval_threshold, 0.4, 1)
     cluster_counts$alpha <- alpha_levels[match(cluster_counts$cluster_id, names(alpha_levels))]
   } else {
     cluster_counts$alpha <- 1
@@ -147,9 +148,9 @@ mymosplot <- function(df, stat = NULL, gap_size = 0.02, spacing = 200, xlab = "P
 
 # mosPlot function
 mosPlot <- function(labels, condition, stat = NULL, cols = NULL, legend = TRUE, 
-                    gap_size=0.02, spacing=200, alpha_range = c(0.3,1),
+                    gap_size=0.02, spacing=200, alpha_range = c(0.3,1), 
                     title = 'Percentage of Cells from Different Conditions',
-                    x_lab = "Population", fill_lab = "Condition", 
+                    x_lab = "Population", fill_lab = "Condition", pval_threshold = 0.05,
                     middleLine = FALSE, plotWidth = TRUE, lineWidth = 1000, hjust_lineText = 0.2) {
   
   # Create data frame
@@ -191,7 +192,7 @@ mosPlot <- function(labels, condition, stat = NULL, cols = NULL, legend = TRUE,
   }
   
   # Base plotp 
-  p <- mymosplot(df = x, stat = stat, cols = cols, gap_size = gap_size, spacing = spacing, fill_lab = fill_lab, xlab = xlab, title = title)
+  p <- mymosplot(df = x, stat = stat, cols = cols, pval_threshold = pval_threshold, gap_size = gap_size, spacing = spacing, fill_lab = fill_lab, xlab = xlab, title = title)
   
   if (legend == FALSE){
     p <- p + NoLegend()
@@ -224,7 +225,7 @@ mosPlot <- function(labels, condition, stat = NULL, cols = NULL, legend = TRUE,
 
 # mosPlotNorm function
 mosPlotNorm <- function(labels, condition, stat = NULL, cols = NULL, legend = TRUE, 
-                        gap_size=0.02, spacing=200, alpha_range = c(0.3,1),
+                        gap_size=0.02, spacing=200, alpha_range = c(0.3,1), pval_threshold = 0.05,
                         title = 'Percentage of Cells from Different Conditions, Normalized by Condition',
                         x_lab = "Population", fill_lab = "Condition", 
                         middleLine = FALSE, plotWidth = TRUE, lineWidth = 1000, hjust_lineText = 0.2) {
@@ -257,8 +258,9 @@ mosPlotNorm <- function(labels, condition, stat = NULL, cols = NULL, legend = TR
   
   # Call mosPlot with normalized data
   p <- mosPlot(labels = norm_x$cluster_id, condition = norm_x$condition, legend = TRUE,
-              cols = cols, stat = stat, middleLine = middleLine,
+              cols = cols, stat = stat, middleLine = middleLine, pval_threshold = pval_threshold,
                title = title, plotWidth = plotWidth, lineWidth = lineWidth, hjust_lineText = hjust_lineText)
   
   return(p)
 }
+
