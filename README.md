@@ -32,4 +32,4 @@ mosPlotNorm(labels = labels, condition = condition, stat=stat)<br>
 # How to use with Seurat Object v4
 mosPlot(labels=seurat_object$labels, condition=seurat_object$condition, stat = c(0.02,0.08,0.2,0.001,0.00002,0.5,0.01)<br>
 <br>
-mosPlotNorm(labels=seurat_object$labels, condition=seurat_object$condition, stat = c(0.02,0.08,0.2,0.001,0.00002,0.5,0.01), cols=rev(cols), plotWidth = T, lineWidth = 500, hjust_lineText = 0.2)<br>
+mosPlotNorm(labels=seurat_object$labels, condition=seurat_object$condition, stat = c(0.02,0.08,0.2,0.001,0.00002,0.5,0.01), cols=rev(cols), plotWidth = T, lineWidth = 500, hjust_lineText = 0.2, pval_threshold = 0.05)<br>
