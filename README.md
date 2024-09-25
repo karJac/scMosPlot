@@ -18,7 +18,7 @@ simple mosaic plot for single cell data, with option to normalize to cell number
 
 
 # How to use:
-`labels <- c("T cell", "T cell", "T cell", "T cell", "Mph", "Mph","T cell", "T cell", "T cell", "T cell", "Mph", "Mph","T cell", "T cell", "T cell", "T cell", "Mph", "Mph","T cell", "T cell", "T cell", "T cell", "Mph", "Mph")<br>
+labels <- c("T cell", "T cell", "T cell", "T cell", "Mph", "Mph","T cell", "T cell", "T cell", "T cell", "Mph", "Mph","T cell", "T cell", "T cell", "T cell", "Mph", "Mph","T cell", "T cell", "T cell", "T cell", "Mph", "Mph")<br>
 condition <- c("tumor", "tumor", "tumor", "control", "control", "tumor","tumor", "tumor", "tumor", "control", "control", "tumor","tumor", "tumor", "tumor", "control", "control", "tumor","tumor", "tumor", "tumor", "control", "control", "tumor")<br>
 stat <- c(0.1, 0.02)  # statistical significance, one per label type<br>
 
