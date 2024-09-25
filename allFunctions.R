@@ -102,7 +102,8 @@ mymosplot <- function(df, stat = NULL, gap_size = 0.02, spacing = 200, xlab = "P
       labels = cluster_counts$cluster_id,
       expand = c(0, 0)
     ) +
-    scale_y_continuous(expand = c(0, 0)) +
+    scale_y_continuous(expand = c(0, 0),
+                       breaks = c(0.0, 0.25, 0.5, 0.75, 1.0)) +
     theme_classic() +
     theme(
       axis.text.x = element_text(angle = 45, hjust = 1, size = 14), # X-axis labels
