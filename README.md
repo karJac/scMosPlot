@@ -6,7 +6,7 @@ simple mosaic plot for single cell data, with option to normalize to cell number
 #' This function creates a mosaic plot based on the provided data frame. <br>
 #'<br>
 #' @param df A data frame with 'cluster_id' and 'condition' columns.<br>
-#' @param stat Optional statistical data.<br>
+#' @param stat Optional statistical data, has to be calculated independly using other packages.<br>
 #' @param gap_size Numeric value for the gap size between fills (default: 0.02).<br>
 #' @param spacing Numeric value for spacing between bars (default: 200).<br>
 #' @param xlab X-axis label.<br>
