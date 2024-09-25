@@ -122,7 +122,7 @@ mymosplot <- function(df, stat = NULL, gap_size = 0.02, pval_threshold = 0.05, s
       breaks = rev(levels(data_for_plot2$condition)),
       name = fill_lab # Use your existing legend title variable
     ) +
-    scale_alpha_discrete(range = alpha_range, labels = c("> 0.05", "<= 0.05")) +
+    scale_alpha_discrete(range = alpha_range, labels =  c(paste0("> ", pval_threshold), paste0("<= ", pval_threshold))) +
     guides(alpha = guide_legend(title = "pval_adj"), fill = guide_legend(title = fill_lab))
 
   if (length(unique(data_for_plot2$alpha)) == 1) { # otherwise the code was giving minimal alpha if you dont provide stat (then $alpha == 1)
