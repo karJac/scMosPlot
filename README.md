@@ -1,6 +1,7 @@
 # scMosPlot
 simple mosaic plot for single cell data, with option to normalize to cell number per condition
-![image](https://github.com/user-attachments/assets/8d8d785f-9289-4b10-8bc2-292221beb0fc)
+![image](https://github.com/user-attachments/assets/d226b53f-6285-4f3c-970f-39897e5f834b)
+
 
 
 #' This function creates a mosaic plot based on the provided data frame. <br>
