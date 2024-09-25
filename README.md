@@ -5,15 +5,15 @@ simple mosaic plot for single cell data, with option to normalize to cell number
 
 #' This function creates a mosaic plot based on the provided data frame. <br>
 #'<br>
-#' @param df A data frame with 'cluster_id' and 'condition' columns.<br>
-#' @param stat Optional statistical data, has to be calculated independly using other packages.<br>
-#' @param gap_size Numeric value for the gap size between fills (default: 0.02).<br>
-#' @param spacing Numeric value for spacing between bars (default: 200).<br>
-#' @param xlab X-axis label.<br>
-#' @param fill_lab Legend title for the fill.<br>
-#' @param title Plot title.<br>
-#' @param alpha_range Range of alpha transparency values.<br>
-#' @param cols Optional vector of colors.<br>
+#' @param df_ A data frame with 'cluster_id' and 'condition' columns._<br>
+#' @param stat _Optional statistical data, has to be calculated independly using other packages._<br>
+#' @param gap_size _Numeric value for the gap size between fills (default: 0.02)._<br>
+#' @param spacing _Numeric value for spacing between bars (default: 200)._<br>
+#' @param xlab _X-axis label._<br>
+#' @param fill_lab _Legend title for the fill._<br>
+#' @param title _Plot title._<br>
+#' @param alpha_range _Range of alpha transparency values._<br>
+#' @param cols _Optional vector of colors._<br>
 #'<br>
 #' @return A ggplot object.<br>
 #' @export<br>
