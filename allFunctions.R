@@ -257,7 +257,7 @@ mosPlotNorm <- function(labels, condition, stat = NULL, cols = NULL, legend = TR
   
   
   # Call mosPlot with normalized data
-  p <- mosPlot(labels = norm_x$cluster_id, condition = norm_x$condition, legend = TRUE,
+  p <- mosPlot(labels = norm_x$cluster_id, condition = norm_x$condition, legend = TRUE, spacing = spacing,
               cols = cols, stat = stat, middleLine = middleLine, pval_threshold = pval_threshold,
                title = title, plotWidth = plotWidth, lineWidth = lineWidth, hjust_lineText = hjust_lineText)
   
