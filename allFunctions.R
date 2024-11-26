@@ -115,7 +115,7 @@ mymosplot <- function(df, stat = NULL, gap_size = 0.02, pval_threshold = 0.05, s
             plot.title = element_text(size = 16), # Plot title
             axis.line.y = element_blank() # Remove Y axis line
         ) +
-        labs(x = el, y = "Proportion", title = title) +
+        labs(x = xlabel, y = "Proportion", title = title) +
         scale_fill_manual(
             values = cols,
             breaks = rev(levels(data_for_plot2$condition)),
