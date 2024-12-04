@@ -34,3 +34,9 @@ mosPlotNorm(labels = labels, condition = condition, stat=stat)<br>
 mosPlot(labels=seurat_object$labels, condition=seurat_object$condition, stat = c(0.02,0.08,0.2,0.001,0.00002,0.5,0.01)<br>
 <br>
 mosPlotNorm(labels=seurat_object$labels, condition=seurat_object$condition, stat = c(0.02,0.08,0.2,0.001,0.00002,0.5,0.01), cols=rev(cols), plotWidth = T, lineWidth = 500, hjust_lineText = 0.2, pval_threshold = 0.05)<br>
+
+
+
+
+
+![mosPlot_perPatient (1)](https://github.com/user-attachments/assets/6768af3b-69b0-4118-b1c2-feaa19f178af)
