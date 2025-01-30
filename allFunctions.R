@@ -2,7 +2,7 @@
 #'
 #' This function creates a mosaic plot based on the provided data frame.
 #'
-#' @param df A data frame with 'cluster_id' and 'condition' columns.
+#' @param mydf A data frame with 'cluster_id' and 'condition' columns.
 #' @param stat Optional statistical data.
 #' @param gap_size Numeric value for the gap size between fills (default: 0.02).
 #' @param spacing Numeric value for spacing between bars (default: 200).
@@ -21,14 +21,14 @@ library(ggmosaic)
 library(scales)
 
 # create mosplot graph function
-mymosplot <- function(df, stat = NULL, gap_size = 0.02, pval_threshold = 0.05, spacing = 200, xlabel = "Population", 
+mymosplot <- function(mydf, stat = NULL, gap_size = 0.02, pval_threshold = 0.05, spacing = 200, xlabel = "Population", 
                       fill_lab = "Condition", title = NULL, alpha_range = c(0.3, 1), cols = NULL) {
     if (is.null(cols)) {
-        cols <- rainbow(length(levels(df$condition)), s = 0.8, v = 0.8)
+        cols <- rainbow(length(levels(mydf$condition)), s = 0.8, v = 0.8)
     }
     
     # Calculate total counts per cluster_id
-    cluster_counts <- df %>%
+    cluster_counts <- mydf %>%
         group_by(cluster_id) %>%
         summarise(total_count = n())
     if (!is.null(stat)) {
@@ -40,7 +40,7 @@ mymosplot <- function(df, stat = NULL, gap_size = 0.02, pval_threshold = 0.05, s
     cluster_counts$alpha <- as.factor(cluster_counts$alpha)
     
     # Calculate counts per cluster_id and condition
-    cluster_condition_counts <- df %>%
+    cluster_condition_counts <- mydf %>%
         group_by(cluster_id, condition) %>%
         summarise(count = n()) %>%
         ungroup()
@@ -191,7 +191,7 @@ mosPlot <- function(labels, condition, stat = NULL, cols = NULL, legend = TRUE,
     }
     
     # Base plotp 
-    p <- mymosplot(df = x, stat = stat, cols = cols, pval_threshold = pval_threshold, gap_size = gap_size, spacing = spacing, fill_lab = fill_lab, xlabel = xlabel, title = title)
+    p <- mymosplot(mydf = x, stat = stat, cols = cols, pval_threshold = pval_threshold, gap_size = gap_size, spacing = spacing, fill_lab = fill_lab, xlabel = xlabel, title = title)
     
     if (legend == FALSE){
         p <- p + NoLegend()
